@@ -2,6 +2,8 @@ package dev.reimer.wayback.api
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dev.reimer.wayback.api.model.Result
+import dev.reimer.wayback.api.util.DateConverterFactory
+import dev.reimer.wayback.api.util.URLConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import retrofit2.Retrofit
@@ -17,6 +19,8 @@ open class WaybackApi : WaybackService {
     private val retrofit: Retrofit by lazy {
         retrofitBuilder
             .baseUrl(baseUrl)
+            .addConverterFactory(URLConverterFactory)
+            .addConverterFactory(DateConverterFactory)
             .addConverterFactory(Json.asConverterFactory(contentType))
             .build()
     }
