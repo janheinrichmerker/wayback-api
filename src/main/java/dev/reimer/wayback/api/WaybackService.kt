@@ -11,6 +11,9 @@ interface WaybackService {
     @GET("available")
     suspend fun available(
         @Query(value = "url", encoded = true) url: URL,
-        @Query(value = "timestamp", encoded = true) timestamp: Date?
+        @Query(value = "timestamp", encoded = true) timestamp: Date? = null
     ): Result
+
+    suspend fun available(url: URL, timestamp: Calendar): Result =
+        available(url, timestamp.time)
 }
