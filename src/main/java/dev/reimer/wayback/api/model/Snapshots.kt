@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Snapshots(
-    val closest: Snapshot?
+    val closest: Snapshot? = null
 )
