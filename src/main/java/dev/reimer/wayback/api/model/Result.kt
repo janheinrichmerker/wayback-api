@@ -5,11 +5,11 @@ import dev.reimer.wayback.api.util.URLSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.net.URL
-import java.util.*
+import java.time.LocalDateTime
 
 @Serializable
 data class Result(
     @SerialName("archived_snapshots") val archivedSnapshots: Snapshots,
     @Serializable(with = URLSerializer::class) val url: URL,
-    @Serializable(with = DateSerializer::class) val timestamp: Date? = null
+    @Serializable(with = DateSerializer::class) val timestamp: LocalDateTime? = null
 )

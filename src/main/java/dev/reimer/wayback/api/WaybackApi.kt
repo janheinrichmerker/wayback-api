@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import retrofit2.Retrofit
 import java.net.URL
-import java.util.*
+import java.time.LocalDateTime
 
 open class WaybackApi : WaybackService {
 
@@ -29,6 +29,6 @@ open class WaybackApi : WaybackService {
         retrofit.create(WaybackService::class.java)
     }
 
-    override suspend fun available(url: URL, timestamp: Date?): Result =
+    override suspend fun available(url: URL, timestamp: LocalDateTime?): Result =
         service.available(url, timestamp)
 }
