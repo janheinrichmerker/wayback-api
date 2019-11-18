@@ -12,8 +12,8 @@ import java.util.*
 
 open class WaybackApi : WaybackService {
 
-    open val retrofitBuilder = Retrofit.Builder()
-    open val baseUrl = "http://archive.org/wayback/"
+    protected open val retrofitBuilder = Retrofit.Builder()
+    protected open val baseUrl = "http://archive.org/wayback/"
 
     private val contentType: MediaType = MediaType.get("application/json")
     private val retrofit: Retrofit by lazy {
@@ -25,7 +25,7 @@ open class WaybackApi : WaybackService {
             .build()
     }
 
-    val service: WaybackService by lazy {
+    private val service: WaybackService by lazy {
         retrofit.create(WaybackService::class.java)
     }
 
