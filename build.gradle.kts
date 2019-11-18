@@ -41,6 +41,25 @@ dependencies {
         name = "retrofit2-kotlinx-serialization-converter",
         version = "0.4.0"
     )
+    testImplementation(
+        group = "org.assertj",
+        name = "assertj-core",
+        version = "3.12.2"
+    )
+    testImplementation(
+        group = "org.junit.jupiter",
+        name = "junit-jupiter-api",
+        version = "5.4.2"
+    )
+    testRuntime(
+        group = "org.junit.jupiter",
+        name = "junit-jupiter-engine",
+        version = "5.4.2"
+    )
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 tasks.withType<KotlinCompile> {
