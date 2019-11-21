@@ -32,6 +32,21 @@ dependencies {
         version = "0.13.0"
     )
     implementation(
+        group = "com.squareup.okio",
+        name = "okio",
+        version = "2.4.0"
+    )
+    implementation(
+        group = "com.squareup.okhttp3",
+        name = "okhttp",
+        version = "4.2.2"
+    )
+    implementation(
+        group = "ru.gildor.coroutines",
+        name = "kotlin-coroutines-okhttp",
+        version = "1.0"
+    )
+    implementation(
         group = "com.squareup.retrofit2",
         name = "retrofit",
         version = "2.6.2"

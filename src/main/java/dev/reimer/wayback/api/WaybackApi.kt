@@ -6,6 +6,7 @@ import dev.reimer.wayback.api.util.DateConverterFactory
 import dev.reimer.wayback.api.util.URLConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import java.net.URL
 import java.time.LocalDateTime
@@ -15,7 +16,7 @@ open class WaybackApi : WaybackService {
     protected open val retrofitBuilder = Retrofit.Builder()
     protected open val baseUrl = "http://archive.org/wayback/"
 
-    private val contentType: MediaType = MediaType.get("application/json")
+    private val contentType: MediaType = "application/json".toMediaType()
     private val retrofit: Retrofit by lazy {
         retrofitBuilder
             .baseUrl(baseUrl)
