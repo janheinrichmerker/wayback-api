@@ -28,6 +28,9 @@ data class Snapshot(
     }
 
     fun getUrl(flag: UrlFlag): URL {
+        if (flag == UrlFlag.DEFAULT) return url
+
+        // Insert flag to URL path.
         val path = url.path
             .replaceFirst(timestampRegex, "$0${flag.flag}")
         val query = url.query?.let { "?$it" } ?: ""
