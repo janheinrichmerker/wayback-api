@@ -9,7 +9,10 @@ import java.time.LocalDateTime
 
 @Serializable
 data class Result(
-    @SerialName("archived_snapshots") val archivedSnapshots: Snapshots,
-    @Serializable(with = URLSerializer::class) val url: URL,
-    @Serializable(with = DateSerializer::class) val timestamp: LocalDateTime? = null
+    @SerialName("archived_snapshots")
+    val archivedSnapshots: Snapshots,
+    @Serializable(with = URLSerializer::class)
+    val url: URL,
+    @Serializable(with = DateSerializer::class)
+    val timestamp: LocalDateTime? = null
 )

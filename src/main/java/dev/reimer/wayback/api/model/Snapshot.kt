@@ -9,7 +9,9 @@ import java.time.LocalDateTime
 @Serializable
 data class Snapshot(
     val available: Boolean,
-    @Serializable(with = URLSerializer::class) val url: URL,
-    @Serializable(with = DateSerializer::class) val timestamp: LocalDateTime,
+    @Serializable(with = URLSerializer::class)
+    val url: URL,
+    @Serializable(with = DateSerializer::class)
+    val timestamp: LocalDateTime,
     val status: Int
 )
