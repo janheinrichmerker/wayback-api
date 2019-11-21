@@ -43,10 +43,10 @@ data class Snapshot(
         )
     }
 
-    suspend fun downloadTo(destination: File) {
+    suspend fun downloadTo(destination: File, flag: UrlFlag = UrlFlag.IDENTITY) {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url(getUrl(UrlFlag.IDENTITY))
+            .url(getUrl(flag))
             .build()
         val response = client.newCall(request).await()
 
