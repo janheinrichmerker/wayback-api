@@ -2,6 +2,7 @@ package dev.reimer.wayback.api
 
 import dev.reimer.wayback.api.util.testBlocking
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.contentOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -53,5 +54,23 @@ class WaybackApiTest {
     fun shouldMatchURL() = testBlocking {
         val result = api.available(URL)
         assertThat(result.url).isEqualTo(URL)
+    }
+
+    @Test
+    @DisplayName("Should match $URL_STRING snapshot raw content.")
+    fun shouldMatchSnapshotFileContent() = testBlocking {
+        val result = api.available(URL, TIMESTAMP)
+        val snapshot = result.archivedSnapshots.closest
+        check(snapshot != null)
+
+        val file = createTempFile()
+        assertThat(file).exists().isFile()
+
+        snapshot.downloadTo(file)
+        assertThat(contentOf(file))
+            .isNotBlank()
+            .contains("Example Web Page")
+
+        assertThat(result.archivedSnapshots.closest).isNotNull
     }
 }
