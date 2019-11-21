@@ -28,12 +28,10 @@ data class Snapshot(
     }
 
     fun getUrl(flag: UrlFlag): URL {
-        println(url.file)
         val path = url.path
             .replaceFirst(timestampRegex, "$0${flag.flag}")
         val query = url.query?.let { "?$it" } ?: ""
         val file = path + query
-        println(file)
         return URL(
             url.protocol,
             url.host,
