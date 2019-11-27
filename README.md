@@ -37,6 +37,10 @@ dependencies {
 
 </details>
 
+## See also
+
+- The [Wayback Gradle plugin](https://github.com/reimersoftware/wayback-gradle-plugin)
+
 ## Status α
 
 ⚠️ _Warning:_ This project is in an experimental alpha stage:
