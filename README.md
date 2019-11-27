@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/dev.reimer/wayback-api.svg)](https://jitpack.io/#dev.reimer/wayback-api)
 
-# wayback-api
+# wayback-api<sup>[α](#status-α)</sup>
 
 Java wrapper for the [Internet Archive](https://archive.org)'s [Wayback API](https://archive.org/help/wayback_api.php).
 
