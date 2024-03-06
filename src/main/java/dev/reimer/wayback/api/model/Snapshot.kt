@@ -35,6 +35,7 @@ data class Snapshot(
             .replaceFirst(timestampRegex, "$0${flag.flag}")
         val query = url.query?.let { "?$it" } ?: ""
         val file = path + query
+        @Suppress("DEPRECATION")
         return URL(
             url.protocol,
             url.host,

@@ -13,11 +13,13 @@ class WaybackApiTest {
 
     companion object {
         private const val URL_STRING = "http://example.com"
+        @Suppress("DEPRECATION")
         private val URL = URL(URL_STRING)
         private val TIMESTAMP: LocalDateTime =
             LocalDateTime.of(2006, 1, 1, 0, 0, 0)
 
         private const val URL_EMPTY_STRING = "http://this.url.would.probably.never.be.indexed.by.the.web.archive"
+        @Suppress("DEPRECATION")
         private val URL_EMPTY = URL(URL_EMPTY_STRING)
     }
 
@@ -63,6 +65,7 @@ class WaybackApiTest {
         val snapshot = result.archivedSnapshots.closest
         check(snapshot != null)
 
+        @Suppress("DEPRECATION")
         val file = createTempFile()
         assertThat(file).exists().isFile()
 

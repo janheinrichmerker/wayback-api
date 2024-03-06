@@ -1,19 +1,22 @@
 package dev.reimer.wayback.api.util
 
-import kotlinx.serialization.Decoder
-import kotlinx.serialization.Encoder
 import kotlinx.serialization.KSerializer
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
 import java.net.URL
-import java.util.*
 
-@Serializer(forClass = Date::class)
 object URLSerializer : KSerializer<URL> {
-    override fun serialize(encoder: Encoder, obj: URL) {
-        encoder.encodeString(obj.toExternalForm())
+    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("URL", PrimitiveKind.STRING)
+
+    override fun serialize(encoder: Encoder, value: URL) {
+        encoder.encodeString(value.toExternalForm())
     }
 
     override fun deserialize(decoder: Decoder): URL {
+        @Suppress("DEPRECATION")
         return URL(decoder.decodeString())
     }
 }
